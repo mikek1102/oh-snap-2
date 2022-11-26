@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+    <script src="js/PhotoViewer.js"></script>
+	<script src="js/s3.js"></script>
+    <script>viewAlbum('mk-oh-snap-2');</script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>Oh Snap</h1>
+      <nav>
+      <div class="camera" data-icon="&#x235f;" onclick="document.getElementById('camera').click();return false;"></div>
+      <form id="filePickerContainer" style="position:absolute;left: -999px">
+            <label for="imagefile"></label>
+            <input type="file" accept="image/*" name="camera" id="camera">
+
+        </form>
+      </nav> 
+    
+			<!-- File Save and Upload -->
+			<form id="uploadForm" class="action-buttons" enctype="multipart/form-data" method="post" action="/upload">
+				<input type="button" value="Submit" id="saveButton" onclick="s3upload()">
+			</form>
+	
+	<section id="photoUpload">
+
+	</section>
+    <div id="viewer" />
+  </body>
+</html>
